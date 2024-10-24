@@ -29,17 +29,16 @@ export class AppComponent {
     }
   }
 
-  onChangeUpperCase() {
-    this.uppercase = !this.uppercase;
+  onChangeSettings(settingName: string, settingValue: boolean) {
+    if (
+      settingName !== 'uppercase' &&
+      settingName !== 'numbers' &&
+      settingName !== 'symbols'
+    ) {
+      return;
+    }
+    this[settingName] = settingValue;
+    console.log(this[settingName], settingName);
   }
-
-  onChangeNumbers() {
-    this.numbers = !this.numbers;
-  }
-
-  onChangeSymbols() {
-    this.symbols = !this.symbols;
-  }
-
   generatePassword() {}
 }

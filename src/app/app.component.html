@@ -17,19 +17,35 @@
             [value]="length"
           />
         </label>
-        <label for="uppercase" (input)="onChangeUpperCase()"
+        <label for="uppercase"
           ><input
+            #uppercase
+            name="uppercase"
             id="uppercase"
             type="checkbox"
             [checked]="uppercase"
+            (change)="onChangeSettings(uppercase.name, uppercase.checked)"
           />Uppercase letters
         </label>
-        <label for="numbers" (input)="onChangeNumbers()"
-          ><input id="numbers" type="checkbox" [checked]="numbers" />Numbers
+        <label for="numbers"
+          ><input
+            #numbers
+            name="numbers"
+            id="numbers"
+            type="checkbox"
+            [checked]="numbers"
+            (change)="onChangeSettings(numbers.name, numbers.checked)"
+          />Numbers
         </label>
-        <label for="symbols" (input)="onChangeSymbols()"
-          ><input id="symbols" type="checkbox" [checked]="symbols" />Special
-          Characters
+        <label for="symbols"
+          ><input
+            #symbols
+            name="symbols"
+            id="symbols"
+            type="checkbox"
+            [checked]="symbols"
+            (change)="onChangeSettings(symbols.name, symbols.checked)"
+          />Special Characters
         </label>
       </fieldset>
       <input type="submit" value="Generate" />
