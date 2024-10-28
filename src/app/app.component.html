@@ -9,7 +9,7 @@
         <label for="length"
           >Password length: {{ length }}
           <input
-            (input)="onChangeLength($event)"
+            [(ngModel)]="length"
             id="length"
             type="range"
             min="6"
@@ -19,32 +19,26 @@
         </label>
         <label for="uppercase"
           ><input
-            #uppercase
             name="uppercase"
             id="uppercase"
             type="checkbox"
-            [checked]="uppercase"
-            (change)="onChangeSettings(uppercase.name, uppercase.checked)"
+            [(ngModel)]="uppercase"
           />Uppercase letters
         </label>
         <label for="numbers"
           ><input
-            #numbers
             name="numbers"
             id="numbers"
             type="checkbox"
-            [checked]="numbers"
-            (change)="onChangeSettings(numbers.name, numbers.checked)"
+            [(ngModel)]="numbers"
           />Numbers
         </label>
         <label for="symbols"
           ><input
-            #symbols
             name="symbols"
             id="symbols"
             type="checkbox"
-            [checked]="symbols"
-            (change)="onChangeSettings(symbols.name, symbols.checked)"
+            [(ngModel)]="symbols"
           />Special Characters
         </label>
       </fieldset>
