@@ -1,49 +1,12 @@
 <div class="container">
   <h1>{{ title }}</h1>
   <div class="grid">
+    <password-display [message]="message"></password-display>
     <div>
-      <h3>your future password:</h3>
-    </div>
-    <div>
-      <fieldset>
-        <label for="length"
-          >Password length: {{ length }}
-          <input
-            [(ngModel)]="length"
-            id="length"
-            type="range"
-            min="6"
-            max="20"
-            [value]="length"
-          />
-        </label>
-        <label for="uppercase"
-          ><input
-            name="uppercase"
-            id="uppercase"
-            type="checkbox"
-            [(ngModel)]="uppercase"
-          />Uppercase letters
-        </label>
-        <label for="numbers"
-          ><input
-            name="numbers"
-            id="numbers"
-            type="checkbox"
-            [(ngModel)]="numbers"
-          />Numbers
-        </label>
-        <label for="symbols"
-          ><input
-            name="symbols"
-            id="symbols"
-            type="checkbox"
-            [(ngModel)]="symbols"
-          />Special Characters
-        </label>
-      </fieldset>
-      <input type="submit" value="Generate" />
-      <input type="button" value="Copy" />
+      <password-settings
+        (settingsChange)="onSettingsChange($event)"
+      ></password-settings>
+      <password-controls></password-controls>
     </div>
   </div>
 </div>
