@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { PasswordDisplayComponent } from './component/password-display.component';
 import { PasswordControlsComponent } from './component/password-controls.component';
 import { PasswordSettingsComponent } from './password-settings.component';
+import { Settings } from './component/types';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +34,7 @@ export class AppComponent {
 
   password = '';
 
-  onSettingsChange(settings: any) {
+  onSettingsChange(settings: Settings) {
     this.length = settings.length;
     this.uppercase = settings.uppercase;
     this.numbers = settings.numbers;
