@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'password-controls',
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './password-controls.component.css',
 })
 export class PasswordControlsComponent {
-  onClickGenerate() {}
+  @Output('generate-password')
+  onGeneratingPassword = new EventEmitter<string>();
+
+  onClickGenerate() {
+    this.onGeneratingPassword.emit('random password');
+  }
 }

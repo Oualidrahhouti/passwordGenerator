@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { PasswordDisplayComponent } from './component/password-display.component';
 import { PasswordControlsComponent } from './component/password-controls.component';
-import { PasswordSettingsComponent } from './password-settings.component';
+import { PasswordSettingsComponent } from './component/password-settings.component';
 import { Settings } from './component/types';
 
 @Component({
@@ -22,8 +22,6 @@ import { Settings } from './component/types';
 export class AppComponent {
   title = 'Angular Password Generator';
 
-  message = 'Your password will display here';
-
   length = 6;
 
   uppercase = false;
@@ -32,7 +30,7 @@ export class AppComponent {
 
   symbols = false;
 
-  password = '';
+  password: string = '';
 
   onSettingsChange(settings: Settings) {
     this.length = settings.length;
@@ -40,5 +38,7 @@ export class AppComponent {
     this.numbers = settings.numbers;
     this.symbols = settings.symbols;
   }
-  generatePassword() {}
+  onGeneratingPassword(password: string) {
+    this.password = password;
+  }
 }
